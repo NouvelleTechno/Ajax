@@ -64,32 +64,32 @@ function ajaxPost(){
  * Cette fonction permet d'envoyer une requête en méthode POST pour créer un contenu
  */
 function ajaxPut(){
-    // Instanciation de l'objet
-    let req = new XMLHttpRequest();
+// Instanciation de l'objet
+let req = new XMLHttpRequest();
 
-    // Ecouteur d'évènement sur changement de l'état prêt
-    req.onreadystatechange = function() {
-        if (req.readyState == 4 && (req.status == 200 || req.status == 0)) {
-            console.log(req.response);
-        } else if (req.readyState < 4) {
-            console.log(req.readyState);
-        }
-    };
-
-    // Stockage des données à envoyer dans un objet
-    let produit = {
-        id: 67,
-        nom: "Produit1",
-        description: "Ceci est le produit 1 modifié",
-        prix: 79,
-        categories_id: 3
+// Ecouteur d'évènement sur changement de l'état prêt
+req.onreadystatechange = function() {
+    if (req.readyState == 4 && (req.status == 200 || req.status == 0)) {
+        console.log(req.response);
+    } else if (req.readyState < 4) {
+        console.log(req.readyState);
     }
+};
 
-    // Spécifie la méthode, l'url et le type d'exécution à utiliser
-    req.open("PUT", "http://api-rest.test/produits/modifier.php", true);
+// Stockage des données à envoyer dans un objet
+let produit = {
+    id: 67,
+    nom: "Produit1",
+    description: "Ceci est le produit 1 modifié",
+    prix: 79,
+    categories_id: 3
+}
 
-    // Envoie la requête avec les données en json
-    req.send(JSON.stringify(produit));
+// Spécifie la méthode, l'url et le type d'exécution à utiliser
+req.open("PUT", "http://api-rest.test/produits/modifier.php", true);
+
+// Envoie la requête avec les données en json
+req.send(JSON.stringify(produit));
 }
 
 /**
